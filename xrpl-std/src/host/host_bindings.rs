@@ -1330,4 +1330,37 @@ unsafe extern "C" {
         amount_ptr: *const u8,
         amount_len: usize,
     ) -> i32;
+
+    // instanceParam
+    pub fn instance_param(index: i32, st_type_id: i32, out_buff_ptr: *mut u8, out_buff_len: usize) -> i32;
+
+    // functionParam
+    pub fn function_param(index: i32, st_type_id: i32, out_buff_ptr: *mut u8, out_buff_len: usize) -> i32;
+
+    // getContractDataFromKey
+    pub fn get_contract_data_from_key(account_ptr: *const u8, account_len: usize, key_ptr: *const u8, key_len: usize, out_buff_ptr: *const u8, out_buff_len: usize) -> i32;
+
+    // getNestedContractDataFromKey
+    pub fn get_nested_contract_data_from_key(account_ptr: *const u8, account_len: usize, nst_ptr: *const u8, nst_len: usize, key_ptr: *const u8, key_len: usize, out_buff_ptr: *const u8, out_buff_len: usize) -> i32;
+    
+    // setContractDataFromKey
+    pub fn set_contract_data_from_key(account_ptr: *const u8, account_len: usize, key_ptr: *const u8, key_len: usize, data_ptr: *const u8, data_len: usize) -> i32;
+
+    // setNestedContractDataFromKey
+    pub fn set_nested_contract_data_from_key(account_ptr: *const u8, account_len: usize, nst_ptr: *const u8, nst_len: usize, key_ptr: *const u8, key_len: usize, data_ptr: *const u8, data_len: usize) -> i32;
+
+    // buildTxn
+    pub fn build_txn(txn_type: i32) -> i32;
+
+    // addTxnField
+    pub fn add_txn_field(index: i32, field: i32, write_ptr: *const u8, write_len: usize) -> i32;
+
+    // emitBuiltTxn
+    pub fn emit_built_txn(index: i32) -> i32;
+
+    // emitTxn
+    pub fn emit_txn(txn_read_ptr: *const u8, txn_read_len: usize) -> i32;
+
+    // emitEvent
+    pub fn emit_event(name_ptr: *const u8, name_len: usize, data_ptr: *const u8, data_len: usize) -> i32;
 }
